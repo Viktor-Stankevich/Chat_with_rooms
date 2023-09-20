@@ -20,7 +20,7 @@ const RoomPage = () => {
 
     return (
         <div
-            className='container w-full sm:w-9/12 md:w-6/12 flex flex-col h-screen gap-6 p-4'
+            className='container w-full sm:w-9/12 md:w-6/12 flex flex-col h-screen gap-y-6 p-4 overflow-hidden'
         >
             <header
                 className='flex justify-between items-start	'
@@ -40,7 +40,7 @@ const RoomPage = () => {
             </header>
 
             <main
-                className='grow'
+                className='chat grow overflow-auto py-4'
             >
                 <ChatList />
             </main>
