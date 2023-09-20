@@ -42,7 +42,6 @@ const JoinProvider = () => {
     }
 
     const leaveRoom = async (room, name) => {
-        console.log(name, room)
         await deleteDoc(doc(collection(roomsRef, room, 'users'), name));
         return navigate('/')
     }

@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import JoinPage from "./pages/JoinPage";
 import RoomPage from "./pages/RoomPage";
 import JoinProvider from "./hoc/JoinProvider";
+import MessageProvider from "./hoc/MessageProvider";
 
 export const router = createBrowserRouter([
     {
@@ -13,9 +14,15 @@ export const router = createBrowserRouter([
                 element: <JoinPage />
             },
             {
-                path: '/:id/:name',
-                element: <RoomPage />
+                element: <MessageProvider />,
+                children: [
+                    {
+                        path: '/:id/:name',
+                        element: <RoomPage />
+                    }
+                ]
             }
+
         ]
     }
 

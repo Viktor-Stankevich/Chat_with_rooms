@@ -45,7 +45,10 @@ const RoomPage = () => {
             </main>
 
             <footer>
-                <SendMessageForm />
+                <SendMessageForm
+                    room={chatInfo.room}
+                    name={chatInfo.name}
+                />
             </footer>
         </div>
     )
