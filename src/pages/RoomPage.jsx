@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SendMessageForm from '../components/forms/SendMessageForm'
 import { useParams } from 'react-router'
 import { useJoin } from '../hooks/useJoin'
+import ChatList from '../components/lists/ChatList'
 
 const RoomPage = () => {
 
@@ -41,7 +42,7 @@ const RoomPage = () => {
             <main
                 className='grow'
             >
-                Окно чата
+                <ChatList />
             </main>
 
             <footer>
