@@ -22,7 +22,7 @@ const JoinProvider = () => {
             roomName: room
         });
 
-        joinRoom(name, room);
+        joinRoom(room, name);
 
     }
 
@@ -30,7 +30,7 @@ const JoinProvider = () => {
 
         const roomExists = await roomAlreadyExists(room);
         if (!roomExists) {
-            return createRoom(name, room)
+            return createRoom(room, name)
         }
 
         await setDoc(doc(collection(roomsRef, room, 'users'), name), {
