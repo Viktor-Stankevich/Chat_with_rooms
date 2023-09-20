@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDoc, getDocs, query, setDoc, where } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, setDoc, where } from 'firebase/firestore';
 import React, { createContext } from 'react'
 import { db } from '../firebase';
 import { Outlet, redirect, useNavigate } from 'react-router-dom';
@@ -16,7 +16,7 @@ const JoinProvider = () => {
         return docSnap.exists() ? true : false;
     }
 
-    const createRoom = async (name, room) => {
+    const createRoom = async (room, name) => {
 
         await setDoc(doc(roomsRef, room), {
             roomName: room
@@ -37,12 +37,14 @@ const JoinProvider = () => {
             name
         })
 
-        return navigate(`/${room}`)
+        return navigate(`/${room}/${name}`)
 
     }
 
-    const leaveRoom = () => {
-        //
+    const leaveRoom = async (room, name) => {
+        console.log(name, room)
+        await deleteDoc(doc(collection(roomsRef, room, 'users'), name));
+        return navigate('/')
     }
 
     const value = { joinRoom, leaveRoom };

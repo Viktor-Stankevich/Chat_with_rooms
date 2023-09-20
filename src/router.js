@@ -9,11 +9,11 @@ export const router = createBrowserRouter([
         element: <JoinProvider />,
         children: [
             {
-                path: '',
+                path: '/',
                 element: <JoinPage />
             },
             {
-                path: ':id',
+                path: '/:id/:name',
                 element: <RoomPage />
             }
         ]
